@@ -1,0 +1,4 @@
+zsolt:35
+teszt:10
+teszt2:215
+zsimbo:175
