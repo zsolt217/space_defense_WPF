@@ -1,0 +1,13 @@
+﻿<Window x:Class="space_defense.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Space defense" Height="350" Width="525">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="hatter.jpg"/>
+        </Grid.Background>
+        <Button Content="Új játék" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Click="Button_Click" Height="30" Margin="302,38,0,0" />
+        <Button Content="Eredmenylista" HorizontalAlignment="Left" Height="30" Margin="302,134,0,0" VerticalAlignment="Top" Width="205" Click="Eredmeny_Click"/>
+        <Button Content="Bezárás" HorizontalAlignment="Left" Height="30" Margin="302,226,0,0" VerticalAlignment="Top" Width="205" Click="Bezar_Click"/>
+    </Grid>
+</Window>

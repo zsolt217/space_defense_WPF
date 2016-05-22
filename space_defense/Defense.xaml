@@ -1,0 +1,36 @@
+﻿<Window x:Class="space_defense.Defense"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:space_defense"
+        Title="Defense" Height="500" Width="1000" Loaded="Window_Loaded" Closing="Window_Closing" KeyDown="Window_KeyDown">
+    <!--ha túl kicsi az ablak akk az oszlopbeszúrás rossz lesz-->
+    <Window.Resources>
+        <local:PontConverter x:Key="PontConverter"/>
+        <local:HajokToGeometryConverter x:Key="HajokConverter"/>
+        <local:EletToGeometryConverter x:Key="EletConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Image Margin="-24,-21,-36,-48" Source="KdgcJG4.jpg" Stretch="Fill"/>
+        <Image Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image.Resources>
+                <local:OszlopToGeometryConverter x:Key="OszlopConverter"/>
+                <local:LovedekekToGeometryConverter x:Key="LovedekekToGeometryConverter"/>
+            </Image.Resources>
+            <Image.Source>
+                <DrawingImage>
+                    <DrawingImage.Drawing>
+                        <DrawingGroup>
+                            <GeometryDrawing Geometry="{Binding Oszlopok, Converter={StaticResource ResourceKey=OszlopConverter}}"  Brush="Black" />
+                            <GeometryDrawing Geometry="{Binding Lovedekek, Converter={StaticResource ResourceKey=LovedekekToGeometryConverter}}" Brush="DarkOrange"/>
+                        </DrawingGroup>
+                    </DrawingImage.Drawing>
+                </DrawingImage>
+            </Image.Source>
+        </Image>
+        <Image  Source="{Binding Hajok, Converter={StaticResource EletConverter}}" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Top" Source="{Binding Path=Hajok, Converter={StaticResource HajokConverter} }"/>
+
+        <Label FontSize="30" Foreground="Magenta" Content="{Binding Hajok, Converter={StaticResource PontConverter} }" HorizontalAlignment="Left" Height="68" Margin="890,10,0,0" VerticalAlignment="Top" Width="92"/>
+
+    </Grid>
+</Window>
